@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 const Content = (props) => {
   return (
     <div className='col-md-4'>
