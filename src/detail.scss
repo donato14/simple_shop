@@ -39,3 +39,7 @@
 .my-alert {
   @include 함수()
 }
+
+.hidden {
+  display: none;
+}
