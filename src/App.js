@@ -6,7 +6,9 @@ import Content from './components/Content';
 import { Link, Route, Switch } from 'react-router-dom';
 import Detail from './components/Detail';
 import axios from 'axios';
+import Cart from './components/Cart';
 
+export let 재고Context = React.createContext();
 
 function App() {
 
@@ -37,7 +39,7 @@ function App() {
           </Navbar>
         </div>
       <Switch>
-      <Route exact path="/">
+      <Route exact path="/simple_shop/">
         <div className="jumbotron">
           <div className="text-container">
             <h1 className="display-4">20% Season OFF</h1>
@@ -45,13 +47,15 @@ function App() {
           </div>
         </div>
           <div className='container'>
+            <재고Context.Provider value={재고}>
             <div className='row'>
               {
                 shoes.map((a, i) => {
                   return <Content shoes={shoes[i]} key={i}/>
                 })
               }
-          </div>
+            </div>
+            </재고Context.Provider>
             <button className='btn btn-primary' onClick={() => {
 
               //로딩중UI
@@ -73,12 +77,16 @@ function App() {
         <Detail shoes = {shoes} 재고={재고} 재고변경={재고변경} />
       </Route>
 
-      <Route path="/:id">
+      {/* <Route path="/:id">
         <div>아무거나 적었을때 이거 보여주셈</div>  
-      </Route>
+      </Route> */}
       </Switch>
       {/* <Route path="/어쩌구" component={Modal}></Route> */}
 
+      
+      <Route path="/cart">
+        <Cart></Cart>
+      </Route>
 
         
     </>
