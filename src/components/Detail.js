@@ -80,8 +80,8 @@ function Detail(props) {
 
           <button className="btn btn-danger" onClick={() => {
             let stock = [...props.재고]; stock[id] = (stock[id] - 1); props.재고변경(stock);
-            props.dispatch({ type: '항목추가', payload: { id: 3, name: '새로운상품', quan: 1 } });
-            history.push('/cart');
+            props.dispatch({ type: '항목추가', payload: { id: (matchProduct.id), name: (matchProduct.title), quan: 1 } });
+            history.push('/simple_shop/cart');
           }}>주문하기</button> 
           <button className="btn btn-primary" onClick={() => { 
             history.goBack();

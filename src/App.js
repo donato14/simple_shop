@@ -13,26 +13,20 @@ export let 재고Context = React.createContext();
 function App() {
 
   let [shoes, setShoes] = useState(Data);
-  let [재고, 재고변경] = useState([10,11,12]);
+  let [재고, 재고변경] = useState([10,11,12,3,2,5]);
 
   return (
     <>
         <div className="App">
           <Navbar bg="light" expand="lg">
             <Container>
-              <Navbar.Brand href="#home">ShoeShop</Navbar.Brand>
+              <Navbar.Brand href="/simple_shop/">ShoeShop</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                  <Nav.Link as={Link} to="/">Home</Nav.Link>
-                  <Nav.Link as={Link} to="/detail">Detail</Nav.Link>
-                  <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                  </NavDropdown>
+                  <Nav.Link as={Link} to="/simple_shop/">Home</Nav.Link>
+                  {/* <Nav.Link as={Link} to="/simple_shop/detail">Detail</Nav.Link> */}
+                  <Nav.Link as={Link} to="/simple_shop/cart">Cart</Nav.Link>
                 </Nav>
               </Navbar.Collapse>
             </Container>
@@ -43,7 +37,7 @@ function App() {
         <div className="jumbotron">
           <div className="text-container">
             <h1 className="display-4">20% Season OFF</h1>
-            <p className="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            <p className="lead">& 22 S/S Product Already In Stock </p>
           </div>
         </div>
           <div className='container'>
@@ -51,7 +45,7 @@ function App() {
             <div className='row'>
               {
                 shoes.map((a, i) => {
-                  return <Content shoes={shoes[i]} key={i}/>
+                  return <Content shoes={shoes[i]} key={i} />
                 })
               }
             </div>
@@ -84,7 +78,7 @@ function App() {
       {/* <Route path="/어쩌구" component={Modal}></Route> */}
 
       
-      <Route path="/cart">
+      <Route path="/simple_shop/cart">
         <Cart></Cart>
       </Route>
 
